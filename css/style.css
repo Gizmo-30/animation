@@ -1,0 +1,103 @@
+:root {
+  --color: indigo;
+  --button: rgb(184, 21, 248);
+}
+
+body {
+  background: Coral;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  position: absolute;
+  z-index: 99;
+}
+
+.item::after {
+  content: '';
+  width: inherit;
+  height: inherit;
+  padding: 2px;
+  border-radius: inherit;
+  background: var(--button);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 99;
+  animation: pattern 1.5s ease-in 1.6s infinite alternate;
+}
+
+.item::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background: var(--color);
+  border-radius: inherit;
+}
+
+.item-1::before {
+  animation: test 3s ease-in 1.5s infinite;
+}
+.item-2::before {
+  animation: test 3s ease-in 2.5s infinite;
+}
+.item-3::before {
+  animation: test 3s ease-in 2.8s infinite;
+}
+.item-1::after {
+  background: var(--color);
+  animation: test 3s ease-in 3.5s infinite;
+}
+.item-2::after {
+  background: var(--color);
+  animation: test 3s ease-in 3.7s infinite;
+}
+
+
+@keyframes test {
+  0% {
+    opacity: 0.2;
+  }
+  
+  100% {
+    width: 300%;
+    height: 300%;
+    opacity: 0;
+  }
+}
+
+
+@keyframes pattern{
+  100% {
+    background: rgb(199, 56, 255);
+    transform: scale(1.1);
+  }
+}
